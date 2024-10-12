@@ -11,10 +11,18 @@ import StringPackage.Interfaces.IClearable;
 import StringPackage.Interfaces.IDecomposable;
 import StringPackage.Interfaces.IMaximazible;
 
+/*
+ * Клас, що відповідає за роботу зі строками та текстом
+ */
+
 public class StringHandler implements IClearable<String>, IDecomposable<String>, IMaximazible<String> {
     
     public String text;
 
+    /*
+     * Конструктор з параметром, що ініціалізує
+     * приватне поле класу
+     */
     public StringHandler(final String text)
     {
         try{
@@ -31,6 +39,10 @@ public class StringHandler implements IClearable<String>, IDecomposable<String>,
         this.text = text;
     }
 
+    /*
+     * Сетер, що ініціалізує приватне поле
+     * класу text
+     */
     public boolean setText(final String text)
     {
         try{
@@ -48,11 +60,17 @@ public class StringHandler implements IClearable<String>, IDecomposable<String>,
         return true;
     }
 
+    /*
+     * Метод гетер для отримання тексту
+     */
     public final String getText()
     {
         return this.text;
     }
 
+    /*
+     * Перевизначений метод для очистки тексту
+     */
     @Override
     public String clear(final String objectToClear)
     {
@@ -62,6 +80,9 @@ public class StringHandler implements IClearable<String>, IDecomposable<String>,
         return result;
     }
 
+    /*
+     * Метод для пошуку найдовшої строки
+     */
     public String longestString(final String[] setOfStrings)
     {
         return Arrays.stream(setOfStrings)
@@ -70,11 +91,18 @@ public class StringHandler implements IClearable<String>, IDecomposable<String>,
         .orElse("");
 }
 
+/*
+ * Метод для очистки наявного у класі тексту
+ */
     public String clear()
     {
         return this.clear(text);
     }
 
+    /*
+     * Перевизначений метод decompose, який 
+     * ділить текст на речення
+     */
     @Override
     public String[] decompose(final String objectToDecompose)
     {
@@ -86,11 +114,17 @@ public class StringHandler implements IClearable<String>, IDecomposable<String>,
         return result;
     }
 
+    /*
+     * Метод, який ділить поточний текст на речення
+     */
     public String[] decompose()
     {
         return this.decompose(text);
     }
 
+    /*
+     * Отримання максимально довгого речення
+     */
     @Override
     public String getMax(final String[] setOfObjects)
     {
@@ -105,6 +139,9 @@ public class StringHandler implements IClearable<String>, IDecomposable<String>,
         return max;
     }
 
+    /*
+     * Перевірка речення на те, чи є воно паліндромом
+     */
     public boolean isPalindrome(final String sentence)
     {
         String operateSentence = sentence;
@@ -122,6 +159,9 @@ public class StringHandler implements IClearable<String>, IDecomposable<String>,
         return true;
     }
 
+    /*
+     * Метод для отримання паліндромів із множини речень (строк)
+     */
     public String[] getPalindromes(final String[] setOfSentences)
     {
         List<String> setOfPalindromes = new ArrayList<String>();

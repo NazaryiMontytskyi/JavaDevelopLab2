@@ -1,5 +1,9 @@
 package Exceptions;
 
+/*
+ * Якщо введена або передана строка буде порожньою,
+ * то цей ексепшен спрацьовує
+ */
 public class EmptyStringError extends Exception {
     
     public EmptyStringError()
